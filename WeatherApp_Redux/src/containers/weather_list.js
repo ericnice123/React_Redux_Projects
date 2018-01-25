@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import ReactSparkline, { Sparklines, SparklinesLine } from 'react-sparklines';
+import Chart from '../components/chart';
 
 class WeatherList extends Component {
     constructor( props ) {
@@ -29,19 +29,13 @@ class WeatherList extends Component {
                     { cityData.city.name }
                 </td>
                 <td>
-                    <Sparklines data={ temperature }>
-                        <SparklinesLine />
-                    </Sparklines>
+                    <Chart data={ temperature } color='orange' type='avg' units='K'/>
                 </td>
                 <td>
-                    <Sparklines data={ pressure }>
-                        <SparklinesLine />
-                    </Sparklines>
+                    <Chart data={ pressure } color='green' type='avg' units='hPa'/>
                 </td>
                 <td>
-                    <Sparklines data={ humidity }>
-                        <SparklinesLine />
-                    </Sparklines>
+                    <Chart data={ humidity } color='grey' type='avg' units='%'/>
                 </td>
             </tr>
         );
@@ -53,9 +47,9 @@ class WeatherList extends Component {
                 <thead>
                     <tr>
                         <th>City</th>
-                        <th>Temperature</th>
-                        <th>Pressure</th>
-                        <th>Humidity</th>
+                        <th>Temperature (K)</th>
+                        <th>Pressure (hPa)</th>
+                        <th>Humidity (%)</th>
                     </tr>
                 </thead>
                 <tbody>
