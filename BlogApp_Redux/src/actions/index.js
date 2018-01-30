@@ -6,7 +6,6 @@ const API_KEY = '?key=LALALALA123';
 
 export function fetchPosts() {
     const request = axios.get(`${BASE_URL}/posts${API_KEY}`);
-    console.log( 'request: ', request );
 
     return {
         type: FETCH_POSTS,
